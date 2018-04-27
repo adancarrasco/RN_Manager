@@ -6,6 +6,7 @@ import firebase from 'firebase';
 
 import reducers from './src/reducers';
 import {firebaseConfig} from './src/config';
+import LoginForm from './src/components/LoginForm';
 
 export default class App extends React.Component {
   UNSAFE_componentWillMount() {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducers)}>
         <View>
-          <Text>Open up App.js to start working on your app!</Text>
+          <LoginForm />
         </View>
       </Provider>
     );
