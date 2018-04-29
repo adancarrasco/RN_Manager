@@ -14,7 +14,7 @@ export default (state = INITIAL_STATE, action) => {
       // would be name: action.payload.value, this is the same as doing:
       // const newState = {};
       // newState[action.payload.prop] = action.payload.value
-      return {...state, [action.payload.prop]: ation.payload.value};
+      return {...state, [action.payload.prop]: action.payload.value};
     default:
       return state;
   }
