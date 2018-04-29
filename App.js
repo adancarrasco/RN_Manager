@@ -7,6 +7,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './src/reducers';
 import {firebaseConfig} from './src/config';
 import LoginForm from './src/components/LoginForm';
+import Router from './src/Router';
 
 export default class App extends React.Component {
   UNSAFE_componentWillMount() {
@@ -17,7 +18,7 @@ export default class App extends React.Component {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}>
-        <LoginForm />
+        <Router />
       </Provider>
     );
   }
