@@ -78,7 +78,34 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    return <Card>{this.renderLoginForm()}</Card>;
+    return (
+      <Card>
+        <View>
+          <CardSection>
+            <Input
+              label="Email"
+              placeholder="email@gmail.com"
+              onChangeText={this.onEmailChange.bind(this)}
+              value={this.props.email}
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              label="Password"
+              placeholder="password"
+              secureTextEntry
+              onChangeText={this.onPasswordChange.bind(this)}
+              value={this.props.password}
+            />
+          </CardSection>
+
+          {this.renderError()}
+          <CardSection>{this.renderSpinner()}</CardSection>
+        </View>
+        );
+      </Card>
+    );
   }
 }
 

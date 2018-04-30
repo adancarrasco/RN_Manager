@@ -19,11 +19,11 @@ const RouterComponent = () => {
 
         <Scene key="main">
           <Scene
+            key="employeeList"
             rightTitle="Add"
             onRight={() => {
               Actions.employeeForm();
             }}
-            key="employeeList"
             component={EmployeeList}
             title="Employees"
             initial

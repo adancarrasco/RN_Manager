@@ -55,11 +55,11 @@ const dispatchLoginUserFailed = dispatch => {
 };
 
 const dispatchLoginUserSuccess = (dispatch, user) => {
-  dispatch({type: LOGIN_USER_SUCCESS, payload: user});
   // Navigate
   // main is the Scene component key property
   // We navigate to main because is the root Scene for Employees
   Actions.main();
+  dispatch({type: LOGIN_USER_SUCCESS, payload: user});
 };
 
 export const logoutUser = () => {
