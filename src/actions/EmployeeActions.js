@@ -22,7 +22,7 @@ export const employeeCreate = ({name, phone, shift}) => {
       .push({name, phone, shift})
       .then(() => {
         dispatch({type: EMPLOYEE_CREATE});
-        Actions.employeeList({type: 'reset'});
+        Actions.main({type: 'reset'});
       });
   };
 };
