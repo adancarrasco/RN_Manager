@@ -36,14 +36,14 @@ class EmployeeCreate extends React.Component {
           />
         </CardSection>
 
-        <CardSection style={{flexDirection: 'column'}}>
+        <CardSection style={styles.pickerContainerStyle}>
           <Text style={styles.pickerTextStyle}>Shift</Text>
           <Picker
             selectedValue={this.props.shift}
             onValueChange={value =>
               this.props.employeeUpdate({prop: 'shift', value})
             }
-            style={{flex: 1}}
+            style={styles.pickerComponentStyle}
           >
             <Picker.Item label="Monday" value="Monday" />
             <Picker.Item label="Tuesday" value="Tuesday" />
@@ -64,6 +64,12 @@ class EmployeeCreate extends React.Component {
 }
 
 const styles = {
+  pickerContainerStyle: {
+    flexDirection: 'column',
+  },
+  pickerComponentStyle: {
+    flex: 1,
+  },
   pickerTextStyle: {
     fontSize: 18,
     paddingLeft: 20,
