@@ -11,6 +11,21 @@ class EmployeeCreate extends React.Component {
     this.props.employeeCreate({name, phone, shift: shift || 'Monday'});
   }
 
+  renderPickerItems() {
+    const items = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ];
+    return items.map((item, index) => (
+      <Picker.Item label={item} value={item} />
+    ));
+  }
+
   render() {
     return (
       <Card>
@@ -45,13 +60,7 @@ class EmployeeCreate extends React.Component {
             }
             style={styles.pickerComponentStyle}
           >
-            <Picker.Item label="Monday" value="Monday" />
-            <Picker.Item label="Tuesday" value="Tuesday" />
-            <Picker.Item label="Wednesday" value="Wednesday" />
-            <Picker.Item label="Thursday" value="Thursday" />
-            <Picker.Item label="Friday" value="Friday" />
-            <Picker.Item label="Saturday" value="Saturday" />
-            <Picker.Item label="Sunday" value="Sunday" />
+            {this.renderPickerItems()}
           </Picker>
         </CardSection>
 
