@@ -7,31 +7,31 @@ import {employeesFetch} from '../actions/EmployeeActions';
 import ListItem from './ListItem';
 
 class EmployeeList extends React.Component {
-  UNSAFE_componentWillMount() {
-    this.props.employeesFetch();
-    this.createDataSource(this.props);
+  UNSAFE_componentWillMount () {
+    this.props.employeesFetch ();
+    this.createDataSource (this.props);
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps (nextProps) {
     // nextProps are the next set of props that this component
     // will be rendered with
     // this.props is still the old set of props
-    this.createDataSource(nextProps);
+    this.createDataSource (nextProps);
   }
 
   createDataSource({employees}) {
-    const ds = new ListView.DataSource({
+    const ds = new ListView.DataSource ({
       rowHasChanged: (r1, r2) => r1 !== r2,
     });
 
-    this.dataSource = ds.cloneWithRows(employees);
+    this.dataSource = ds.cloneWithRows (employees);
   }
 
-  renderRow(employee) {
-    return <ListItem employee={employee} />;
+  renderRow (employee) {
+    return <ListItem key={employee.uid} employee={employee} />;
   }
 
-  render() {
+  render () {
     return (
       <ListView
         enableEmptySections
@@ -45,11 +45,11 @@ class EmployeeList extends React.Component {
 const mapStateToProps = state => {
   // Iterates over all the objects in the Firebase response and coverts it into an array as
   // [{shift: 'Monday', name: 'S', phone: '444-444-4444, id: '12asdl2312'}, {...}]
-  const employees = _.map(state.employees, (val, uid) => {
+  const employees = _.map (state.employees, (val, uid) => {
     return {...val, uid};
   });
 
   return {employees};
 };
 
-export default connect(mapStateToProps, {employeesFetch})(EmployeeList);
+export default connect (mapStateToProps, {employeesFetch}) (EmployeeList);
